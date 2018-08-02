@@ -6,13 +6,8 @@ class Counter extends Component {
     tags: ["tag1", "tag2", "tag3"]
   };
 
-  // constructor() {
-  //   super();
-  //   this.handleIncreament = this.handleIncreament.bind(this); // binding method
-  // }
-
   handleIncreament = () => {
-    console.log("Increment Clicked", this);
+    this.setState({ count: this.state.count + 1 });
   };
 
   render() {
@@ -29,7 +24,9 @@ class Counter extends Component {
     );
   }
   getBadgeClasses() {
-    return "badge badge-secondary m-2";
+    return this.state.count === 0
+      ? "badge badge-secondary m-3"
+      : "badge badge-warning m-3";
   }
 
   formatCount() {
